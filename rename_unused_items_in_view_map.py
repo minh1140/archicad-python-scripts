@@ -61,8 +61,9 @@ for item in sorted(unusedViewTreeItems, key=lambda i: i.prefix + i.name):
     try:
         if moveToFolder and unusedViewsFolder:
             acc.MoveNavigatorItem(item.navigatorItemId, unusedViewsFolder)
-        if renameView:
-            acc.RenameNavigatorItem(item.navigatorItemId, newName=item.name+viewSuffix)
+        if renameView:                                                                          #new command for renaming views:
+            acc.RenameNavigatorItem(item.navigatorItemId, newName=item.name+viewSuffix)         #use RenameNavigatorItem to rename views filtered from previous steps. new name = old name + suffix
         print(f"{item.prefix} {item.name}\n\t{item}")
     except:
         continue
+
